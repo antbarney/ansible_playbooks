@@ -1,0 +1,40 @@
+# code: language=ansible
+---
+# ansible specific variables
+ansible_user: serveradmin
+ansible_python_interpreter: auto_silent
+ansible_ssh_private_key_file: ~/.ssh/id_ed25519
+
+# User Variables
+user: serveradmin
+admin_group: admins
+sshkey_path: ~/.ssh/id_ed25519.pub
+use_chrony: false
+setup_git_client: false
+
+# NTP Variables
+primary_ntp_server: 10.10.20.1
+fallback_ntp_pool: time.cloudflare.com
+req_timezone: America/Los_Angeles
+
+# Package Managment Variables
+force_apt_get: false
+default_packages:
+  - htop
+
+extra_packages: []
+
+neovim_packages:
+  - make
+  - gcc
+  - ripgrep
+  - unzip
+  - git
+  - xclip
+  - neovim
+
+packages: "{{ default_packages }}"
+
+# Use these varables to install default packages or extend them with extra packages as needed
+install_neovim: false
+install_extras: false

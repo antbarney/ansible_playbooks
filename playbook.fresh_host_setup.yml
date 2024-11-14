@@ -1,0 +1,13 @@
+# code: language=ansible
+---
+- name: Setup new Host
+  hosts: all
+  order: sorted
+  gather_facts: true
+  become: true
+
+  roles:
+    - create_admin_user_and_group
+    - apt_packages
+    - configure_ntp_sources
+    - configure_git_config

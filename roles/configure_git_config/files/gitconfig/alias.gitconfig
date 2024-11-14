@@ -1,0 +1,11 @@
+[alias]
+  ec = config --global -e
+  unstage = reset HEAD --
+  hist = log --graph --pretty=tformat:'%C(auto,yellow)%h%Creset %C(auto,yellow)%d%Creset %s %C(auto,green)(%cD) %C(auto,bold blue)<%an>%Creset' -20
+  hista = log --graph --all --pretty=tformat:'%C(auto,yellow)%h%Creset %C(auto,yellow)%d%Creset %s %C(auto,green)(%cD) %C(auto,bold blue)<%an>%Creset' -20
+  localprune = ! git branch -vv | grep 'origin/.*: gone]' | awk '{print $1}' | xargs git branch -D
+  up = ! git fa && git pull --rebase --prune
+  st = status
+  co = checkout
+  br = branch
+  fa = fetch --all --prune

@@ -1,0 +1,8 @@
+# code: language=ansible
+---
+# general variables
+setup_git_client: true
+extra_packages:
+  - git
+  - wget
+  - curl

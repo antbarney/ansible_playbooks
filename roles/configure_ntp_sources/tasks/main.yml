@@ -1,0 +1,13 @@
+# code: language=ansible
+---
+- name: "Set Requested Timezone: {{ req_timezone }}"
+  community.general.timezone:
+    name: "{{ req_timezone }}"
+
+- name: Configure NTP Sources for Hosts using Timesyncd
+  ansible.builtin.import_tasks: timesyncd.yml
+  when: ansible_os_family == "Debian" and not use_chrony
+
+- name: Configure NTP Sources for Hosts using Chrony
+  ansible.builtin.import_tasks: chrony.yml
+  when: ansible_os_family == "Debian" and use_chrony

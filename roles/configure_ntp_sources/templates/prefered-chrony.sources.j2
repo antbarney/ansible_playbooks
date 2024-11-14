@@ -1,0 +1,4 @@
+# Primary Local NTP Server
+server {{ primary_ntp_server }} iburst prefer
+# Fallback NTP Pool
+pool {{ fallback_ntp_pool }} iburst maxsources 2

@@ -1,0 +1,4 @@
+# code: language=ansible
+---
+primary_ntp_server: 192.168.1.1
+fallback_ntp_pool: us.pool.ntp.org

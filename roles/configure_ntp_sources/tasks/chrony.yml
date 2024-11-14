@@ -1,0 +1,10 @@
+# code: language=ansible
+---
+- name: Copy over the chrony config
+  ansible.builtin.template:
+    src: prefered-chrony.sources.j2
+    dest: /etc/chrony/sources.d/prefered-chrony.sources
+    owner: root
+    group: root
+    mode: '0644'
+  notify: "Restart Chrony Service"

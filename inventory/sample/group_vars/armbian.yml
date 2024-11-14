@@ -1,0 +1,4 @@
+# code: language=ansible
+---
+# general variables
+use_chrony: true

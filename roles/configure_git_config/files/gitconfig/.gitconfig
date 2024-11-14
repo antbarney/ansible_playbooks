@@ -1,0 +1,37 @@
+[user]
+  name = Anthony Barney
+  email = antbarney@outlook.com
+
+[commit]
+
+[diff]
+  tool = vscode
+
+[merge]
+  tool = vscode
+
+[difftool "vscode"]
+  cmd = code-insiders --wait --diff $LOCAL $REMOTE
+
+[mergetool "vscode"]
+  cmd = code-insiders --wait $MERGED
+
+[difftool]
+  prompt = false
+  trustExitCode = false
+
+[mergetool]
+  prompt = false
+  trustExitCode = false
+
+[include]
+path = "~/.colors.gitconfig"
+
+[include]
+path = "~/.alias.gitconfig"
+
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true

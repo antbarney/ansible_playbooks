@@ -1,0 +1,5 @@
+---
+# defaults file for roles/create_admin_user_and_group
+user: serveradmin
+admin_group: admins
+sshkey_path: ~/.ssh/id_ed25519.pub

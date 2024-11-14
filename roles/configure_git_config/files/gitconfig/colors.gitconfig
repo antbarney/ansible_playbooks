@@ -1,0 +1,25 @@
+[color]
+  branch = auto
+  diff = auto
+  status = auto
+
+[color "branch"]
+  current = cyan bold ul
+  local = yellow
+  remote = green
+  upstream = blue
+
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+
+[color "status"]
+  header = cyan bold
+  branch  = yellow bold
+  added = yellow
+  changed = green
+  untracked = red bold ul
+  localBranch = cyan
+  remoteBranch  = yellow bold ul

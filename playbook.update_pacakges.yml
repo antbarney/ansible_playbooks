@@ -1,0 +1,10 @@
+# code: language=ansible
+---
+- name: Setup new Host
+  hosts: all
+  order: sorted
+  gather_facts: true
+  become: true
+
+  roles:
+    - apt_packages

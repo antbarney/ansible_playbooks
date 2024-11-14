@@ -1,0 +1,31 @@
+---
+- name: "Create admin group: {{ admin_group }}"
+  ansible.builtin.group:
+    name: "{{ admin_group }}"
+    state: present
+
+- name: Create Admin User on Host
+  ansible.builtin.user:
+    user: "{{ user }}"
+    groups: "{{ admin_group }}"
+    append: true
+    state: present
+    createhome: true
+    shell: /bin/bash
+
+- name: Set up authorized key(s) for the user
+  ansible.posix.authorized_key:
+    user: "{{ user }}"
+    state: present
+    key: '{{ item }}'
+  with_file:
+    - "{{ sshkey_path }}"
+
+- name: "Setup passwordless sudo for admin group: {{ admin_group }}"
+  ansible.builtin.template:
+    src: 90-admin-group.j2
+    dest: /etc/sudoers.d/90-admin-group
+    owner: root
+    group: root
+    mode: '0644'
+

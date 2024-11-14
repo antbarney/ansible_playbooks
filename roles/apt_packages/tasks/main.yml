@@ -1,0 +1,24 @@
+# code: language=ansible
+---
+- name: Should Neovim be installed
+  ansible.builtin.set_fact:
+    packages: "{{ packages + neovim_packages }}" # "{{ lookup('community.general.flattened', app_packages, nvim_packages) }}"
+  when: install_neovim
+
+- name: Should Extras be installed
+  ansible.builtin.set_fact:
+    packages: "{{ packages + extra_packages }}"
+  when: install_extras
+
+- name: Install packages
+  ansible.builtin.package:
+    name: "{{ packages }}"
+    state: present
+    update_cache: true
+    force_apt_get: "{{ force_apt_get }}"
+  when: packages | length > 0
+
+- name: Ensure packages are updated
+  ansible.builtin.package:
+    force_apt_get: "{{ force_apt_get }}"
+    upgrade: true

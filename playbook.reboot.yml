@@ -1,0 +1,11 @@
+# code: language=ansible
+---
+- name: Reboot Nodes
+  hosts: all
+  gather_facts: true
+  tasks:
+    - name: Reboot the nodes (and Wait upto 10 mins max)
+      become: true
+      ansible.builtin.reboot:
+        reboot_command: "{{ custom_reboot_command | default(omit) }}"
+        reboot_timeout: 600

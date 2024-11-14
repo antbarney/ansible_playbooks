@@ -1,0 +1,13 @@
+.vscode/
+**/facts
+
+inventory/**
+!inventory/sample
+!inventory/sample/**
+
+roles/morgangraphics.ansible-role-nvm/**
+
+playbook.cleanup_tmp_admin.yml
+playbook.debug_wsl_nvm.yml
+playbook.debug.yml
+playbook.wsl_local.yml
